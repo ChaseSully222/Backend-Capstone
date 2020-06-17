@@ -1,0 +1,19 @@
+{% staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Baseball Cards</title>
+  </head>
+  <body>
+    <h1>Cards</h1>
+
+    <ol>
+    {% for card in all_cards %}
+        <li>
+            {{ card.playerId }}
+        </li>
+    {% endfor %}
+    </ol>
+  </body>
+</html>

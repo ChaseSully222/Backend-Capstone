@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from .player import Player
 from .set import Set
 
@@ -7,7 +8,8 @@ class Card(models.Model):
     playerId = models.ForeignKey(Player, on_delete=models.DO_NOTHING)
     year = models.IntegerField()
     setId = models.ForeignKey(Set, on_delete=models.DO_NOTHING)
-    imagePath = models.CharField(max_length=50)
+    imagePathFront = models.CharField(max_length=50)
+    imagePathBack = models.CharField(max_length=50)
     cardNumber = models.CharField(max_length=50)
     attribute = models.CharField(max_length=50)
     

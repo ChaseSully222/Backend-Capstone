@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from .user import User
 from .card import Card
 
