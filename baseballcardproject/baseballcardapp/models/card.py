@@ -10,6 +10,8 @@ class Card(models.Model):
     setId = models.ForeignKey(Set, on_delete=models.DO_NOTHING)
     cardNumber = models.CharField(max_length=50)
     attribute = models.CharField(max_length=50)
+    imagePathFront = models.CharField(max_length=50)
+    imagePathBack = models.CharField(max_length=50)
     
     class Meta:
         verbose_name = ("Card")
