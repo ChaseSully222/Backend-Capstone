@@ -8,7 +8,7 @@ class User(models.Model):
     firstName = models.CharField()
     lastName = models.CharField()
     address = models.CharField()
-    phoneNumber = models.PhoneNumberField()
+    phoneNumber = models.IntegerField()
     email = models.EmailField()
     createdAt = models.DateTimeField()
     lastLogin = models.DateTimeField()
