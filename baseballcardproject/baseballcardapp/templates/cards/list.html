@@ -1,6 +1,10 @@
+{% extends 'shared/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
+
+{% block css %}
+{% endblock %}
+
+{% block content %}
   <head>
     <meta charset="utf-8">
     <title>Baseball Cards</title>
@@ -16,4 +20,5 @@
     {% endfor %}
     </ol>
   </body>
-</html>
+
+{% endblock %}
