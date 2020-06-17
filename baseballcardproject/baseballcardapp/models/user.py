@@ -5,9 +5,9 @@ from django.dispatch import receiver
 
 class User(models.Model):
 
-    firstName = models.CharField()
-    lastName = models.CharField()
-    address = models.CharField()
+    firstName = models.CharField(max_length=50)
+    lastName = models.CharField(max_length=50)
+    address = models.CharField(max_length=50)
     phoneNumber = models.IntegerField()
     email = models.EmailField()
     createdAt = models.DateTimeField()

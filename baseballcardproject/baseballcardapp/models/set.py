@@ -2,9 +2,9 @@ from django.db import models
 
 class Set(models.Model):
 
-    name = models.CharField()
-    year = models.IntegerField(max_length=4)
-    notes = models.CharField()
+    name = models.CharField(max_length=50)
+    year = models.IntegerField()
+    notes = models.CharField(max_length=50)
 
     class Meta:
         verbose_name = ("Set")

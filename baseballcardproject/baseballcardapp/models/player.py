@@ -2,8 +2,8 @@ from django.db import models
 
 class Player(models.Model):
 
-    firstName = models.CharField()
-    lastName = models.CharField()
+    firstName = models.CharField(max_length=50)
+    lastName = models.CharField(max_length=50)
 
     class Meta:
         verbose_name = ("Player")
