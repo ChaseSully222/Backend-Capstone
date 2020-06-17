@@ -11,11 +11,12 @@ def card_list(request):
 
             db_cursor.execute("""
             select
-                c.playerId,
+                c.playerId_Id,
                 c.year,
-                c.setId,
+                c.setId_Id,
                 c.imagePathFront,
-                c.cardNumberBack,
+                c.imagePathBack,
+                c.cardNumber,
                 c.attribute
             from baseballcardapp_card c
             """)
@@ -25,9 +26,9 @@ def card_list(request):
 
             for row in dataset:
                 card = Card()
-                card.playerId = row['playerId']
+                card.playerId_Id = row['playerId_Id']
                 card.year = row['year']
-                card.setId = row['setId']
+                card.setId_Id = row['setId_Id']
                 card.imagePathFront = row['imagePathFront']
                 card.imagePathBack = row['imagePathBack']
                 card.cardNumber = row['cardNumber']
