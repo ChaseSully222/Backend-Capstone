@@ -19,4 +19,7 @@ from baseballcardapp.models import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('logout/', logout_user, name='logout'),
+
 ]

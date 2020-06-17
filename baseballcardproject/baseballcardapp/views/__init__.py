@@ -1,0 +1,1 @@
+from baseballcardapp.views.auth.logout import logout_user
