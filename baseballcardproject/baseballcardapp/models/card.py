@@ -9,7 +9,7 @@ class Card(models.Model):
     year = models.IntegerField()
     setId = models.ForeignKey(Set, on_delete=models.DO_NOTHING)
     cardNumber = models.CharField(max_length=50)
-    attribute = models.CharField(max_length=50)
+    attribute = models.CharField(max_length=50, null=True)
     imagePathFront = models.CharField(max_length=50, null=True)
     imagePathBack = models.CharField(max_length=50, null=True)
     
