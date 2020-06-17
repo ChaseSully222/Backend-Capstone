@@ -1,8 +1,12 @@
 from django.db import models
+from .user import User
+from .card import Card
 
 class Collection(models.Model):
 
-    
+    userId = models.ForeignKey(User)
+    cardId = models.ForeignKey(Card)
+    notes = models.CharField()
 
     class Meta:
         verbose_name = ("Collection")

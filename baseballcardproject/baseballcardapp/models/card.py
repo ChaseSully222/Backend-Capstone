@@ -1,9 +1,16 @@
 from django.db import models
+from .player import Player
+from .set import Set
 
 class Card(models.Model):
 
+    playerId = models.ForeignKey(Player)
+    year = models.IntegerField(max_length=4)
+    setId = models.ForeignKey(Set)
+    imagePath = models.CharField()
+    cardNumber = models.CharField()
+    attribute = models.CharField()
     
-
     class Meta:
         verbose_name = ("Card")
         verbose_name_plural = ("Cards")
