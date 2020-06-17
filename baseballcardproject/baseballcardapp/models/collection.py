@@ -4,8 +4,8 @@ from .card import Card
 
 class Collection(models.Model):
 
-    userId = models.ForeignKey(User)
-    cardId = models.ForeignKey(Card)
+    userId = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    cardId = models.ForeignKey(Card, on_delete=models.DO_NOTHING)
     notes = models.CharField()
 
     class Meta:
