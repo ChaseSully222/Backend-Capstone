@@ -5,3 +5,5 @@ from .main.list import main
 from .players.list import player_list
 from .sets.list import set_list
 from .collection.list import collection_list
+from .cards.list import card_list
+from .cards.form import card_form
