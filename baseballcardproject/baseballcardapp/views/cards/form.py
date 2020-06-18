@@ -46,7 +46,8 @@ def card_form(request):
         sets = get_sets()
         template = 'cards/form.html'
         context = {
-            'all_players': players
+            'all_players': players,
+            'all_sets': sets
         }
 
         return render(request, template, context)
