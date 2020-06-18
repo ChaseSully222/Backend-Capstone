@@ -1,0 +1,37 @@
+{% extends 'shared/base.html' %}
+{% block content %}
+
+    <h1>Baseball Cards Main</h1>
+<div>
+    <h3>Baseball Cards Stats</h3>
+        Cards:<br>
+        Sets:<br>
+        Years:<br>
+        Players:<br>
+</div>
+    <br>
+<div>
+    <label for="cars">Browse by Players:</label>
+
+<select name="Select Last Name Initial" id="lastNameInitialFiler">
+    <option value="Select First Letter of Last Name">Select First Letter of Last Name</option>
+    <option value="A">A</option>
+    <option value="B">B</option>
+    <option value="C">C</option>
+    <option value="D">D</option>
+</select><br>
+
+
+    <label for="Sets">Broswe by Sets:</label>
+
+<select name="Year" id="setYearFilter">
+  <option value="Select a Year">Select a Year</option>
+  <option value="1990">1990</option>
+  <option value="1991">1991</option>
+  <option value="1992">1992</option>
+  <option value="1993">1993</option>
+</select>
+</div>
+    
+
+{% endblock %}
