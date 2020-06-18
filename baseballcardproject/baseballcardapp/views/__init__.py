@@ -3,3 +3,4 @@ from .connection import Connection
 from .home import home
 from .players.list import player_list
 from .sets.list import set_list
+from .collection.list import collection_list
