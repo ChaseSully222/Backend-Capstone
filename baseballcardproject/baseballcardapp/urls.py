@@ -9,7 +9,8 @@ urlpatterns = [
     path('home/', home, name='home'),
     # path('main/', main, name='main'),
     path('players/', player_list, name='players'),
-    # path('sets/', set_list, name="sets"),
+    path('sets/', set_list, name="sets"),
+    # path('mycollection/', collection_list, name="mycollection"),
     path('logout/', logout_user, name='logout'),
 
 ]
