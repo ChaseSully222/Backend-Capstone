@@ -1,0 +1,48 @@
+{% extends 'shared/base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <head>
+    <meta charset="utf-8">
+    <title>Grand Slam Collections</title>
+  </head>
+  <body>
+    <h1>Add Card to Database</h1>
+
+
+    <form action="{% url 'baseballcardapp:card' %}" method="post">
+      {% csrf_token %}
+      <fieldset>
+          <label for="player">Player: </label>
+          <input id="player" type="text" name="player">
+      </fieldset>
+      <fieldset>
+          <label for="year">Year: </label>
+          <input id="year" type="text" name="year">
+      </fieldset>
+      <fieldset>
+          <label for="set">Set: </label>
+          <input id="set" type="text" name="set">
+      </fieldset>
+      <fieldset>
+          <label for="cardNumber">Card Number: </label>
+          <input id="cardNumber" type="number" name="cardNumber">
+      </fieldset>
+      <fieldset>
+          <label for="frontIMG">Card Front Image: </label>
+          <input id="frontIMG" type="text" name="frontIMG">
+      </fieldset>
+      <fieldset>
+          <label for="backIMG">Card Back Image: </label>
+          <input id="backIMG" type="text" name="backIMG">
+      </fieldset>
+      <fieldset>
+          <label for="attribute">Attribute: </label>
+          <input id="attribute" type="text" name="attribute">
+      </fieldset>
+
+      <input type="submit" value="Add It" />
+    </form>
+  </body>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block css %}
+{% endblock %}
+
+{% block content %}
+  <head>
+    <meta charset="utf-8">
+    <title>Players</title>
+  </head>
+  <body>
+    <h1>Players</h1>
+    {% comment %} <a href="{% url 'baseballcardapp:player_form' %}">{% endcomment %}Add a Player to the Database</a>
+    <body><h3>Last name starts:</h3> A | B | C | D | E | F | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |</body>
+    <ul>
+    {% for player in all_players %}
+        <li>
+            {{ player.firstName}} {{ player.lastName }}
+        </li>
+    {% endfor %}
+    </ul>
+  </body>
+
+{% endblock %}
