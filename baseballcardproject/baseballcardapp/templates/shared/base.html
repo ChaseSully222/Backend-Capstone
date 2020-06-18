@@ -27,11 +27,15 @@
 </head>
 
 <body>
+<h1>Grand Slam Collections</h1> 
 
     <nav id="site-nav">
         <ol class="navList">
             <li class="navList__route"><a href="{% url 'baseballcardapp:home' %}">Home</a></li>
-            <li class="navList__route"><a href="{% url 'baseballcardapp:cards' %}">Cards</a></li>
+            {% comment %} <li class="navList__route"><a href="{% url 'baseballcardapp:main' %}">Baseball Card Main</a></li> {% endcomment %}
+            <li class="navList__route"><a href="{% url 'baseballcardapp:players' %}">Players</a></li>
+            {% comment %} <li class="navList__route"><a href="{% url 'baseballcardapp:sets' %}">Sets</a></li> {% endcomment %}
+            {% comment %} <li class="navList__route"><a href="{% url 'baseballcardapp:myCollection' %}">My Collection</a></li> {% endcomment %}
         </ol>
     </nav>
 

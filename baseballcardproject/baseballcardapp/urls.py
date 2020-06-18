@@ -5,9 +5,11 @@ app_name = "baseballcardapp"
 
 urlpatterns = [
     path('', home, name='home'),
-    path('home/', home, name='home'),
-    path('cards/', card_list, name='cards'),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('home/', home, name='home'),
+    # path('main/', main, name='main'),
+    path('players/', player_list, name='players'),
+    # path('sets/', set_list, name="sets"),
     path('logout/', logout_user, name='logout'),
 
 ]
