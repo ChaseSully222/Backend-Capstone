@@ -1,0 +1,29 @@
+{% extends 'shared/base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <head>
+    <meta charset="utf-8">
+    <title>Grand Slam Collections</title>
+  </head>
+  <body>
+    <h1>Add Player to Database</h1>
+
+
+    <form action="{% url 'baseballcardapp:players' %}" method="post">
+      {% csrf_token %}
+      <fieldset>
+          <label for="firstName">First Name: </label>
+          <input id="firstName" type="text" name="firstName">
+      </fieldset>
+      <fieldset>
+          <label for="lastName">Last Name: </label>
+          <input id="lastName" type="text" name="lastName">
+      </fieldset>
+ 
+      <input type="hidden" name="next" value="{{ request.path }}">
+      <button type="submit">Add Player</button>
+    </form>
+  </body>
+{% endblock %}

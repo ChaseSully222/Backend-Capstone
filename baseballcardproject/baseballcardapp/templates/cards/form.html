@@ -20,7 +20,7 @@
                     <option value="" selected disbled hidden>Select a Player</option>
                     <option value="{{ player.id }}">{{player.firstName}} {{player.lastName}}</option>
                 {% endfor %}
-            </select> Don't see your player?
+            </select><a href="{% url 'baseballcardapp:player_form' %}"> Don't see your player?</a>
       </fieldset>
       <fieldset>
           <label for="year">Year: </label>
