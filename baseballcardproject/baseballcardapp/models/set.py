@@ -5,7 +5,7 @@ class Set(models.Model):
 
     name = models.CharField(max_length=50)
     year = models.IntegerField()
-    notes = models.CharField(max_length=50)
+    notes = models.CharField(max_length=50, null=True)
 
     class Meta:
         verbose_name = ("Set")

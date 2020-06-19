@@ -10,7 +10,7 @@ playerCount = Player.objects.all().count()
 def player_list(request):
     if request.method == 'GET':
         with sqlite3.connect(Connection.db_path) as conn:
-            conn.row_factory = sqlite3.Row
+            conn.row_factory = model_factory(Player)
             db_cursor = conn.cursor()
 
             db_cursor.execute("""
@@ -20,15 +20,7 @@ def player_list(request):
             from baseballcardapp_player p
             """)
 
-            all_players = []
-            dataset = db_cursor.fetchall()
-
-            for row in dataset:
-                player = Player()
-                player.firstName = row['firstName']
-                player.lastName = row['lastName']
-
-                all_players.append(player)
+            all_players = db_cursor.fetchall()
 
         template = 'players/list.html'
         context = {
