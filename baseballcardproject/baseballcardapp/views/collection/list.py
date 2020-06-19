@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 import sqlite3
 from django.shortcuts import render
-from baseballcardapp.models import Collection
+from baseballcardapp.models import *
 from ..connection import Connection
 
 
@@ -9,7 +9,7 @@ from ..connection import Connection
 def collection_list(request):
     if request.method == 'GET':
         with sqlite3.connect(Connection.db_path) as conn:
-            conn.row_factory = sqlite3.Row
+            conn.row_factory = model_factory(Collection)
             db_cursor = conn.cursor()
 
             db_cursor.execute("""
@@ -21,17 +21,7 @@ def collection_list(request):
             FROM baseballcardapp_collection c
             """)
 
-            all_collections = []
-            dataset = db_cursor.fetchall()
-
-            for row in dataset:
-                collection = Collection()
-                collection.id = row['id']
-                collection.userId_id = row['userId_id']
-                collection.cardId_id = row['cardId_id']
-                collection.notes = row['notes']
-
-                all_collections.append(collection)
+            all_collections = db_cursor.fetchall()
 
         template = 'collection/list.html'
         context = {

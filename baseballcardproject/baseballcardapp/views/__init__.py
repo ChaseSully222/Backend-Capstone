@@ -5,6 +5,7 @@ from .main.list import main
 from .players.list import *
 from .players.form import player_form
 from .sets.list import set_list
+from .sets.form import set_form
 from .collection.list import collection_list
 from .cards.list import card_list
 from .cards.form import card_form

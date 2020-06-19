@@ -33,19 +33,20 @@
                     <option value="" selected disbled hidden>Select the Set</option>
                     <option value="{{ set.id }}">{{set.year}} {{set.name}}</option>
                 {% endfor %}
-            </select> Can't find the correct set?
+            </select> 
+            <a href="{% url 'baseballcardapp:set_form' %}">Can't find the correct set?</a>
       </fieldset>
       <fieldset>
           <label for="cardNumber">Card Number: </label>
           <input id="cardNumber" type="number" name="cardNumber">
       </fieldset>
       <fieldset>
-          <label for="frontIMG">Card Front Image: </label>
-          <input id="frontIMG" type="text" name="frontIMG">
+          <label for="imagePathFront">Card Front Image: </label>
+          <input id="imagePathFront" type="text" name="imagePathFront">
       </fieldset>
       <fieldset>
-          <label for="backIMG">Card Back Image: </label>
-          <input id="backIMG" type="text" name="backIMG">
+          <label for="imagePathBack">Card Back Image: </label>
+          <input id="imagePathBack" type="text" name="imagePathBack">
       </fieldset>
       <fieldset>
           <label for="attribute">Attribute: </label>

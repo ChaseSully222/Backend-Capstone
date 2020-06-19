@@ -33,7 +33,7 @@ def get_sets():
             s.id,
             s.name,
             s.year,
-            s.notes
+            s.setnotes
         from baseballcardapp_set s
         """)
 

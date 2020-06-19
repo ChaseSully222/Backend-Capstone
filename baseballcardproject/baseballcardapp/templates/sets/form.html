@@ -9,3 +9,22 @@
   </head>
   <body>
     <h1>Add Set to Database</h1>
+
+    <form action="{% url 'baseballcardapp:sets' %}" method="post">
+      {% csrf_token %}
+      <fieldset>
+          <label for="year">Year: </label>
+          <input id="year" type="number" name="year">
+      </fieldset>
+      <fieldset>
+          <label for="name">Name: </label>
+          <input id="name" type="text" name="name">
+      </fieldset>
+      <fieldset>
+          <label for="setnotes">Notes: </label>
+          <textarea rows="3" cols="20" id="setnotes" type="text" name="setnotes"></textarea>
+      </fieldset>
+      <input type="submit" value="Add It" />
+    </form>
+  </body>
+{% endblock %}
