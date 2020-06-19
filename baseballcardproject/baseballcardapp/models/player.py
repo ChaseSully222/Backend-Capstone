@@ -14,4 +14,4 @@ class Player(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("player_detail", kwargs={"pk": self.pk})
+        return reverse("player_details", kwargs={"pk": self.pk})

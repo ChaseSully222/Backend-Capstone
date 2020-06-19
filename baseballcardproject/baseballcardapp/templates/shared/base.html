@@ -36,8 +36,11 @@
             <li class="navList__route"><a href="{% url 'baseballcardapp:players' %}">Players</a></li>
             <li class="navList__route"><a href="{% url 'baseballcardapp:sets' %}">Sets</a></li>
             <li class="navList__route"><a href="{% url 'baseballcardapp:mycollection' %}">My Collection</a></li>
-            <li class="navList__route"><a href="{% url 'baseballcardapp:login' %}">Login</a></li>
+            {% if request.user.id %}
             <li class="navList__route"><a href="{% url 'baseballcardapp:logout' %}">Logout</a></li>
+            {% else %}
+            <li class="navList__route"><a href="{% url 'baseballcardapp:login' %}">Login</a></li>
+            {% endif %}
         </ol>
     </nav>
 

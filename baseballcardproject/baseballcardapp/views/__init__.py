@@ -4,6 +4,7 @@ from .home import home
 from .main.list import main
 from .players.list import *
 from .players.form import player_form
+from .players.details import player_details
 from .sets.list import set_list
 from .sets.form import set_form
 from .collection.list import collection_list
