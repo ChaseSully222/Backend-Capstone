@@ -14,12 +14,12 @@ def set_list(request):
                 s.id,
                 s.name,
                 s.year,
-                s.notes
+                s.setnotes
             from baseballcardapp_set s
             """)
 
             all_sets = db_cursor.fetchall()
-            
+
         template = 'sets/list.html'
         context = {
             'all_sets': all_sets
@@ -36,11 +36,11 @@ def set_list(request):
             db_cursor.execute("""
             INSERT INTO baseballcardapp_set
             (
-                year, name, notes
+                year, name, setnotes
             )
             VALUES (?, ?, ?)
             """,
             (form_data['year'], form_data['name'],
-                form_data['notes']))
+                form_data['setnotes']))
 
         return redirect(reverse('baseballcardapp:sets'))

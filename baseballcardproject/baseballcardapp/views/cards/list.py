@@ -1,7 +1,7 @@
 import sqlite3
 from django.shortcuts import render, redirect, reverse
 from baseballcardapp.models import *
-from baseballcardapp.models import modelfactory
+from baseballcardapp.models import model_factory
 from ..connection import Connection
 from django.contrib.auth.decorators import login_required
 
@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 def card_list(request):
     if request.method == 'GET':
         with sqlite3.connect(Connection.db_path) as conn:
-            conn.row_factory = modelfactory(Card)
+            conn.row_factory = model_factory(Card)
             db_cursor = conn.cursor()
 
             db_cursor.execute("""
@@ -43,12 +43,12 @@ def card_list(request):
             db_cursor.execute("""
             INSERT INTO baseballcardapp_card
             (
-                playerId, year, setId, cardNumber, imagePathFront, ImagePathBack, attribute
+                playerId_id, year, setId_id, cardNumber, imagePathFront, ImagePathBack, attribute
             )
             VALUES (?, ?, ?, ?, ?, ?, ?)
             """,
-            (form_data['playerId'], form_data['year'],
-                form_data['setId'], form_data['cardNumber'],
+            (form_data["player"], form_data['year'],
+                form_data["set"], form_data['cardNumber'],
                 form_data['imagePathFront'], form_data['imagePathBack'],
                 form_data['attribute']))
 
