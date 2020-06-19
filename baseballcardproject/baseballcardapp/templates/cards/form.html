@@ -16,7 +16,7 @@
       <fieldset>
             <label for="player">Player: </label>
             <select id="player" type="text" name="player">
-                {% for player in all_players %}
+                {% for player in all_players|dictsort:"lastName" %}
                     <option value="" selected disbled hidden>Select a Player</option>
                     <option value="{{ player.id }}">{{player.firstName}} {{player.lastName}}</option>
                 {% endfor %}
@@ -29,7 +29,7 @@
       <fieldset>
             <label for="set">Set: </label>
             <select id="set" type="text" name="set">
-                {% for set in all_sets %}
+                {% for set in all_sets|dictsort:"name"|dictsort:"year" %}
                     <option value="" selected disbled hidden>Select the Set</option>
                     <option value="{{ set.id }}">{{set.year}} {{set.name}}</option>
                 {% endfor %}

@@ -6,7 +6,6 @@ from ..connection import Connection
 
 playerCount = Player.objects.all().count()
 
-
 def player_list(request):
     if request.method == 'GET':
         with sqlite3.connect(Connection.db_path) as conn:

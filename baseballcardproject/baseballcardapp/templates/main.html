@@ -1,7 +1,7 @@
 {% extends 'shared/base.html' %}
 
 {% block content %}
-    <h1>Baseball Cards Main</h1>
+    <h1>Baseball Cards({{ cardCount }})</h1>
     <a href="{% url 'baseballcardapp:card_form' %}">Add a Card to the Database</a>
 
 <div>
@@ -57,6 +57,10 @@
             <option value="1992">1992</option>
             <option value="1993">1993</option>
         </select>
+
+
+
+        
         
 </div>
 {% endblock %}
