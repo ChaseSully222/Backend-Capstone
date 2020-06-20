@@ -16,9 +16,9 @@
     <ul>
     {% for player in all_players|dictsort:"lastName" %}
         <li>
-        {% comment %} <a href="{% url 'baseballcardapp:players' player.id %}"> {% endcomment %}
+        <a href="{% url 'baseballcardapp:players' 1 %}">
         {{ player.firstName}} {{ player.lastName }}
-        {% comment %} </a> {% endcomment %}
+        </a>
         </li>
        
     {% endfor %}

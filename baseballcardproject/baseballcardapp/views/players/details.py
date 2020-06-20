@@ -7,7 +7,7 @@ from baseballcardapp.models import model_factory
 from ..connection import Connection
 
 
-def get_player(player_id):
+def get_player(playerId):
     with sqlite3.connect(Connection.db_path) as conn:
         conn.row_factory = model_factory(Player)
         db_cursor = conn.cursor()
@@ -19,14 +19,14 @@ def get_player(player_id):
             p.lastName
         FROM baseballcardapp_player p
         WHERE p.id = ?
-        """, (player_id,))
+        """, (playerId,))
 
         return db_cursor.fetchone()
 
 @login_required
-def player_details(request, player_id):
+def player_details(request, playerId):
     if request.method == 'GET':
-        player = get_player(player_id)
+        player = get_player(playerId)
 
         template = 'players/detail.html'
         context = {
