@@ -6,7 +6,7 @@ app_name = "baseballcardapp"
 urlpatterns = [
     path('', home, name='home'),
     path('accounts/', include('django.contrib.auth.urls')),
-    # path('register/form', register_form, name='register_form'),
+    path('register/form', register_form, name='register_form'),
     path('home/', home, name='home'),
     path('main/', main, name='main'),
     path('players/', player_list, name='players'),
@@ -14,6 +14,7 @@ urlpatterns = [
     path('players/<int:playerId>/', player_details, name='players'),
     path('sets/', set_list, name="sets"),
     path('sets/form', set_form, name='set_form'),
+    path('sets/<int:set_id>/', set_details, name='set'),
     path('card/', card_list, name="card"),
     path('card/form', card_form, name='card_form'),
     path('mycollection/', collection_list, name="mycollection"),

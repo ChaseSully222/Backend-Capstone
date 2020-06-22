@@ -1,0 +1,13 @@
+{% extends 'shared/base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <head>
+    <meta charset="utf-8">
+    <title>Set</title>
+  </head>
+  <body>
+    <h1><a href="{% url 'baseballcardapp:main' %}">Baseball Cards</a> > <a href="{% url 'baseballcardapp:sets' %}">Sets</a> > {{ set.year }} {{ set.name }}</h1>
+  </body>
+{% endblock %}
