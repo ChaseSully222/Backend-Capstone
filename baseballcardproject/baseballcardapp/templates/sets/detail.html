@@ -9,5 +9,10 @@
   </head>
   <body>
     <h1><a href="{% url 'baseballcardapp:main' %}">Baseball Cards</a> > <a href="{% url 'baseballcardapp:sets' %}">Sets</a> > {{ set.year }} {{ set.name }}</h1>
+    {% for card in cards|dictsort:"cardNumber" %}
+  <ul>
+  <li><button>+</button> {{card.year}} {{set.name}} #{{ card.cardNumber }} {{ card.firstName}} {{card.lastName}}
+  </ul>
+  {% endfor %}
   </body>
 {% endblock %}
