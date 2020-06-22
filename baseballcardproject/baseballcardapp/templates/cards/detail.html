@@ -1,0 +1,15 @@
+{% extends 'shared/base.html' %}
+
+{% load static %}
+
+{% block content %}
+      <head>
+    <meta charset="utf-8">
+    <title>Card</title>
+  </head>
+  <body>
+    <h1><a href="{% url 'baseballcardapp:main' %}">Baseball Cards</a> > {{card.year}} {{card.setId}} # {{ card.cardNumber}} {{card.firstName}} {{card.lastName}}</h1>
+  
+  </body>
+{% endblock %}
+

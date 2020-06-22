@@ -17,6 +17,7 @@ urlpatterns = [
     path('sets/<int:set_id>/', set_details, name='set'),
     path('card/', card_list, name="card"),
     path('card/form', card_form, name='card_form'),
+    path('card/<int:card_id>/', card_details, name='card'),
     path('mycollection/', collection_list, name="mycollection"),
     path('logout/', logout_user, name='logout'),
     
