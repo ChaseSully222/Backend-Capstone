@@ -10,6 +10,14 @@
     <title>My Collection</title>
   </head>
     <h1>Manage Collection</h1>
-    <h2 style="text-align:left;float:left;">Cards</h2> 
-    <hr style="clear:both;"/>
+      <h2 style="text-align:left;float:left;">Cards</h2> 
+        <hr style="clear:both;"/>
+  <ul>
+    {% for collection in all_collections %}
+        {% if request.user.id == collection.id %}
+          <li>
+          {{collection.userId_id}} {{collection.cardId_id}} {{collection.}}
+          </li>
+        {% endif %}
+    {% endfor %}
 {% endblock %}
