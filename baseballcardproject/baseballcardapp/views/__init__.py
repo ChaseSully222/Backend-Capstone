@@ -12,3 +12,4 @@ from .sets.details import set_details
 from .collection.list import collection_list
 from .cards.list import card_list
 from .cards.form import card_form
+from .cards.details import card_details
