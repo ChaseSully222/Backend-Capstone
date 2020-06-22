@@ -12,11 +12,11 @@
     <body>
     <h1><a href="{% url 'baseballcardapp:main' %}">Baseball Cards</a> > Players({{all_players|length}})</h1>
     <a href="{% url 'baseballcardapp:player_form' %}"><b>Add a Player to the Database</b></a>
-    <body><h4>Last name starts:</h4>| A | B | C | D | E | F | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |</body>
+    {% comment %} <body><h4>Last name starts:</h4>| A | B | C | D | E | F | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |</body> {% endcomment %}
     <ul>
     {% for player in all_players|dictsort:"lastName" %}
         <li>
-        <a href="{% url 'baseballcardapp:players' 1 %}">
+        <a href="{% url 'baseballcardapp:players' player.id %}">
         {{ player.firstName}} {{ player.lastName }}
         </a>
         </li>

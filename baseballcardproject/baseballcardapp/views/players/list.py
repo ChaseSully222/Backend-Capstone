@@ -15,7 +15,8 @@ def player_list(request):
             db_cursor.execute("""
             select
                 p.firstName,
-                p.lastName
+                p.lastName,
+                p.id
             from baseballcardapp_player p
             """)
 
