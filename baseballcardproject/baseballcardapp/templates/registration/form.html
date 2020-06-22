@@ -29,7 +29,8 @@
       <label for="email">Email: </label>
       <input id="email" type="email" name="email" required>
   </fieldset>
-  <button type="submit">Register</button>
+      {% csrf_token %}
+  <input type="submit" name="submit" value="Register">
 </form>
 <a href="{% url 'baseballcardapp:login' %}">Already have an account?  Login here!</a>
 </section>

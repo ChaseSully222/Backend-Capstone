@@ -12,11 +12,11 @@
     <h1>Manage Collection</h1>
       <h2 style="text-align:left;float:left;">Cards</h2> 
         <hr style="clear:both;"/>
-  <ul>
+  <ul style="list-style-type:none;">
     {% for collection in all_collections %}
         {% if request.user.id == collection.id %}
           <li>
-          {{collection.userId_id}} {{collection.cardId_id}} {{collection.}}
+          <button>-</button> <a href="{% url 'baseballcardapp:card' collection.cardId_id %}">{{collection.cardId_id}} {{collection.notes}}</a>
           </li>
         {% endif %}
     {% endfor %}
