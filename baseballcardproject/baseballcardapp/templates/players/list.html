@@ -10,14 +10,17 @@
     <title>Players</title>
   </head>
     <body>
-    <h1>Players({{all_players|length}})</h1>
-    <a href="{% url 'baseballcardapp:player_form' %}">Add a Player to the Database</a>
-    <body><h3>Last name starts:</h3> A | B | C | D | E | F | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |</body>
+    <h1><a href="{% url 'baseballcardapp:main' %}">Baseball Cards</a> > Players({{all_players|length}})</h1>
+    <a href="{% url 'baseballcardapp:player_form' %}"><b>Add a Player to the Database</b></a>
+    {% comment %} <body><h4>Last name starts:</h4>| A | B | C | D | E | F | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |</body> {% endcomment %}
     <ul>
     {% for player in all_players|dictsort:"lastName" %}
         <li>
-            {{ player.firstName}} {{ player.lastName }}
+        <a href="{% url 'baseballcardapp:players' player.id %}">
+        {{ player.firstName}} {{ player.lastName }}
+        </a>
         </li>
+       
     {% endfor %}
     </ul>
   </body>

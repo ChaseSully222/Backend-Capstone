@@ -10,13 +10,15 @@
     <title>Sets</title>
     </head>
   <body>
-    <h1>Sets({{all_sets|length}})</h1>
-    <a href="{% url 'baseballcardapp:set_form' %}">Add a Set to the Database</a>
-    <h3>Select a Year</h3>
+    <h1><a href="{% url 'baseballcardapp:main' %}">Baseball Cards</a> > Sets({{all_sets|length}})</h1>
+    <a href="{% url 'baseballcardapp:set_form' %}"><b>Add a Set to the Database</b></a>
+    <h4>Select a Set:</h4>
         <ul style="list-style-type:none;">
     {% for set in all_sets|dictsort:"year" %}
         <li>
-           <b>{% ifchanged set.year %} {{ set.year }} {% endifchanged %}</b>
+           {% comment %} {% ifchanged set.year %}  {% endcomment %}
+           <a href="{% url 'baseballcardapp:set' set.id %}">{{ set.year }} {{ set.name }}</a>
+           {% comment %} {% endifchanged %} {% endcomment %}
         </li>
     {% endfor %}
     </ul>

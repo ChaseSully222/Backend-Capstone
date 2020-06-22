@@ -1,0 +1,18 @@
+{% extends 'shared/base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <head>
+    <meta charset="utf-8">
+    <title>Player</title>
+  </head>
+  <body>
+    <h1><a href="{% url 'baseballcardapp:main' %}">Baseball Cards</a> > <a href="{% url 'baseballcardapp:players' %}">Players</a> > {{ player.firstName }} {{ player.lastName }}</h1>
+  {% for card in cards|dictsort:"year" %}
+  <ul>
+  <li><button>+</button> {{card.year}} {{card.setId}} #{{ card.cardNumber }} {{player.firstName}} {{player.lastName}}
+  </ul>
+  {% endfor %}
+  </body>
+{% endblock %}
