@@ -11,7 +11,12 @@
     <h1><a href="{% url 'baseballcardapp:main' %}">Baseball Cards</a> > <a href="{% url 'baseballcardapp:sets' %}">Sets</a> > {{ set.year }} {{ set.name }}</h1>
     {% for card in cards|dictsort:"cardNumber" %}
   <ul style="list-style-type:none;">
-  <li><button>+</button> <a href="{% url 'baseballcardapp:card' card.id %}">{{card.year}} {{set.name}} #{{ card.cardNumber }} {{ card.firstName}} {{card.lastName}}</a>
+  <li>
+      <form action="{% url 'baseballcardapp:mycollection' %}" method="post">
+        {% csrf_token %}
+          <input type="hidden" value="{{card.id}}" name="card_id">
+            <button type="submit">+</button> <a href="{% url 'baseballcardapp:card' card.id %}">{{card.year}} {{set.name}} #{{ card.cardNumber }} {{ card.firstName}} {{card.lastName}}</a>
+      </form>
   </ul>
   {% endfor %}
   </body>

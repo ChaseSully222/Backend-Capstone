@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 import sqlite3
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from baseballcardapp.models import *
 from ..connection import Connection
 
@@ -29,3 +29,21 @@ def collection_list(request):
         }
 
         return render(request, template, context)
+
+    elif request.method == 'POST':
+        form_data = request.POST
+        user = request.user
+        
+        with sqlite3.connect(Connection.db_path) as conn:
+            db_cursor = conn.cursor()
+
+            db_cursor.execute("""
+            INSERT INTO baseballcardapp_collection
+            (
+                cardId_id, userId_id
+            )
+            VALUES (?,?)
+            """,
+            (form_data['card_id'], user.id))
+
+        return redirect(reverse('baseballcardapp:players'))
