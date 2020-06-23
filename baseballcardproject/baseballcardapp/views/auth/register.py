@@ -19,4 +19,4 @@ def register_form(request):
         user.username = form_data['username']
         user.save()
 
-        return redirect(reverse('baseballcardapp:main'))
+        return redirect(reverse('baseballcardapp:login'))

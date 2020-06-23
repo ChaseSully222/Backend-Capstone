@@ -59,3 +59,5 @@ def player_details(request, playerId):
         }
 
         return render(request, template, context)
+
+

@@ -7,7 +7,7 @@ class Collection(models.Model):
 
     userId = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     cardId = models.ForeignKey(Card, on_delete=models.DO_NOTHING)
-    notes = models.CharField(max_length=50)
+    notes = models.CharField(max_length=50, null=True)
 
     class Meta:
         verbose_name = ("Collection")
