@@ -24,6 +24,20 @@ def get_collection(collection_id):
 
 def collection_details(request, collection_id):
         form_data = request.POST
+        
+        if (
+            "actual_method" in form_data
+            and form_data["actual_method"] == "DELETE"
+        ):
+            with sqlite3.connect(Connection.db_path) as conn:
+                db_cursor = conn.cursor()
+                
+                db_cursor.execute("""
+                DELETE FROM baseballcardapp_collection
+                WHERE id = ?
+                """, (collection_id,))
+
+            return redirect(reverse('baseballcardapp:mycollection'))
 
         if (
             "actual_method" in form_data
@@ -46,19 +60,6 @@ def collection_details(request, collection_id):
 
         # Check if this POST is for deleting a card in collection
     
-        if (
-            "actual_method" in form_data
-            and form_data["actual_method"] == "DELETE"
-        ):
-            with sqlite3.connect(Connection.db_path) as conn:
-                db_cursor = conn.cursor()
-                
-                db_cursor.execute("""
-                DELETE FROM baseballcardapp_collection
-                WHERE id = ?
-                """, (collection_id,))
-
-            return redirect(reverse('baseballcardapp:mycollection'))
 
 
 @login_required
