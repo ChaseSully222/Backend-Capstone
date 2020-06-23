@@ -24,7 +24,7 @@
   </form>
   <form action="{% url 'baseballcardapp:collection_edit_form' collection.id %}" method="GET">
           {% csrf_token %}
-          <input type="hidden" name="actual_method" value="EDIT">
+          {% comment %} <input type="hidden" name="actual_method" value="EDIT"> {% endcomment %}
           <button>Edit</button>
   </form>
         </li>
