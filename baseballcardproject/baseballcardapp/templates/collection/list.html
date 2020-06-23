@@ -5,24 +5,29 @@
 {% endblock %}
 
 {% block content %}
-  <head>
-    <meta charset="utf-8">
-    <title>My Collection</title>
-  </head>
-    <h1>Manage Collection</h1>
-      <h2 style="text-align:left;float:left;">Cards</h2> 
-        <hr style="clear:both;"/>
-  <ul style="list-style-type:none;">
-    {% for collection in all_collections %}
-        {% if request.user.id == collection.userId_id %}
-          <li>
-            <a href="{% url 'baseballcardapp:card' collection.cardId_id %}">{{collection.cardId_id}} {{collection.notes}}</a>
-    <form action="{% url 'baseballcardapp:collection_details' collection.id %}" method="POST">
+<head>
+  <meta charset="utf-8">
+  <title>My Collection</title>
+</head>
+  <h1>Manage Collection</h1>
+    <h2 style="text-align:left;float:left;">Cards</h2> 
+      <hr style="clear:both;"/>
+<ul style="list-style-type:none;">
+  {% for collection in all_collections %}
+      {% if request.user.id == collection.userId_id %}
+        <li>
+          <a href="{% url 'baseballcardapp:card' collection.cardId_id %}">{{collection.cardId_id}} Notes:({{collection.notes}})</a>
+  <form action="{% url 'baseballcardapp:collection_details' collection.id %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="actual_method" value="DELETE">
+        <button>Delete</button>
+  </form>
+  <form action="{% url 'baseballcardapp:collection_edit_form' collection.id %}" method="GET">
           {% csrf_token %}
-          <input type="hidden" name="actual_method" value="DELETE">
-          <button>Delete</button>
-    </form>
-          </li>
-        {% endif %}
-    {% endfor %}
+          <input type="hidden" name="actual_method" value="EDIT">
+          <button>Edit</button>
+  </form>
+        </li>
+      {% endif %}
+  {% endfor %}
 {% endblock %}

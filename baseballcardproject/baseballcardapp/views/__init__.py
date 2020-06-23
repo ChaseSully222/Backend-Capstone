@@ -10,7 +10,7 @@ from .sets.list import set_list
 from .sets.form import set_form
 from .sets.details import set_details
 from .collection.list import collection_list
-from .collection.detail import collection_details
+from .collection.detail import *
 from .cards.list import card_list
 from .cards.form import card_form
 from .cards.details import card_details

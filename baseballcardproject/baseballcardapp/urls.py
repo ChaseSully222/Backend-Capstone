@@ -19,7 +19,8 @@ urlpatterns = [
     path('card/form', card_form, name='card_form'),
     path('card/<int:card_id>/', card_details, name='card'),
     path('mycollection/', collection_list, name="mycollection"),
-    path('mycollection/<int:collection_id>', collection_details, name="collection_details"),
+    path('mycollection/<int:collection_id>/', collection_details, name="collection_details"),
+    path('mycollection/<int:collection_id>/form/', collection_edit_form, name="collection_edit_form"),
     path('logout/', logout_user, name='logout'),
     
 
