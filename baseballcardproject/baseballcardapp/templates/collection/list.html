@@ -16,17 +16,12 @@
     {% for collection in all_collections %}
         {% if request.user.id == collection.userId_id %}
           <li>
-          <a href="{% url 'baseballcardapp:card' collection.cardId_id %}">{{collection.cardId_id}} {{collection.notes}}</a>
-        {% comment %} <form action="{% url 'baseballcardapp:mycollection' collection.id %}" method="POST">
-            {% csrf_token %}
-            <input type="hidden" name="actual_method" value="DELETE">
-            <button>Delete</button>
-        </form>
-
-        <form action="{% url 'baseballcardapp:collection_edit_form' collection.id %}" method="GET">
-            {% csrf_token %}
-            <button>Edit</button> {% endcomment %}
-        </form>
+            <a href="{% url 'baseballcardapp:card' collection.cardId_id %}">{{collection.cardId_id}} {{collection.notes}}</a>
+    <form action="{% url 'baseballcardapp:collection_details' collection.id %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="actual_method" value="DELETE">
+          <button>Delete</button>
+    </form>
           </li>
         {% endif %}
     {% endfor %}

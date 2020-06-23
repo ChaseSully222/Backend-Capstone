@@ -31,7 +31,8 @@ def collection_list(request):
         return render(request, template, context)
 
     elif request.method == 'POST':
-        form_data = request.POST
+        form_data = request.POST  
+
         user = request.user
         
         with sqlite3.connect(Connection.db_path) as conn:
