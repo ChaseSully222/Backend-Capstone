@@ -11,7 +11,7 @@ class Player(models.Model):
         verbose_name_plural = ("Players")
 
     def __str__(self):
-        return self.name
+        return f"{self.firstName} {self.lastName}"
 
     def get_absolute_url(self):
         return reverse("player_details", kwargs={"pk": self.pk})
