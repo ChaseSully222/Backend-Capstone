@@ -4,6 +4,8 @@ from baseballcardapp.models import Card
 from baseballcardapp.models import Set
 from baseballcardapp.models import Player
 from ..connection import Connection
+from string import ascii_uppercase
+
 
 def main(request):
 
@@ -16,7 +18,8 @@ def main(request):
         context = {
             'playerCount': playerCount,
             'cardCount': cardCount,
-            'setCount': setCount
+            'setCount': setCount,
+            'alphabet': ascii_uppercase
         }
 
         return render(request, template, context)
