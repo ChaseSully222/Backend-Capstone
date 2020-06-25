@@ -13,10 +13,10 @@
     <h2 style="text-align:left;float:left;">Cards</h2> 
       <hr style="clear:both;"/>
 <ul style="list-style-type:none;">
-  {% for collection in all_collections %}
+  {% for collection in all_collections|dictsort:"year" %}
       {% if request.user.id == collection.userId_id %}
         <li>
-          <a href="{% url 'baseballcardapp:card' collection.cardId_id %}">{{collection.cardId_id}} Notes:({{collection.notes}})</a>
+          <a href="{% url 'baseballcardapp:card' collection.cardId_id %}">{{collection.year}} {{collection.name}} #{{collection.cardNumber}} {{collection.firstName}}  {{collection.lastName}} ({{collection.notes}})</a>
   <form action="{% url 'baseballcardapp:collection_details' collection.id %}" method="POST">
         {% csrf_token %}
         <input type="hidden" name="actual_method" value="DELETE">
@@ -24,7 +24,6 @@
   </form>
   <form action="{% url 'baseballcardapp:collection_edit_form' collection.id %}" method="GET">
           {% csrf_token %}
-          {% comment %} <input type="hidden" name="actual_method" value="EDIT"> {% endcomment %}
           <button>Edit</button>
   </form>
         </li>

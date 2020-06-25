@@ -56,11 +56,7 @@ def collection_details(request, collection_id):
                 ))
 
         return redirect(reverse('baseballcardapp:mycollection'))
-
-
-        # Check if this POST is for deleting a card in collection
-    
-
+  
 
 @login_required
 def collection_edit_form(request, collection_id):

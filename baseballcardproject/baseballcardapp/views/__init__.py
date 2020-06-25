@@ -6,7 +6,7 @@ from .auth.register import register_form
 from .players.list import *
 from .players.form import player_form
 from .players.details import player_details
-from .sets.list import set_list
+from .sets.list import set_list, year_list
 from .sets.form import set_form
 from .sets.details import set_details
 from .collection.list import collection_list

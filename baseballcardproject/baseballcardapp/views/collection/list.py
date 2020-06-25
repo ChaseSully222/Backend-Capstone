@@ -17,8 +17,19 @@ def collection_list(request):
                 c.id,
                 c.userId_id,
                 c.cardId_id,
-                c.notes
+                c.notes,
+                ca.year year,
+                ca.setId_id,
+                ca.playerId_id,
+                ca.cardNumber cardNumber,
+                ca.attribute attribute,
+                pl.lastName lastName,
+                pl.firstName firstName,
+                se.name name
             FROM baseballcardapp_collection c
+            JOIN baseballcardapp_card ca on c.cardId_id = ca.id
+            JOIN baseballcardapp_set se on ca.setId_id = se.id
+            JOIN baseballcardapp_player pl on ca.playerId_id = pl.id
             """)
 
             all_collections = db_cursor.fetchall()
