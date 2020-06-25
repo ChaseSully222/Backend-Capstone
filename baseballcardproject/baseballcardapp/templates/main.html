@@ -8,7 +8,7 @@
 
 <div>
     <table style="border:1px solid black">
-            <th colspan="2">Baseball Cards Stats</th>
+            <th colspan="2">Baseball Card Stats</th>
         <tr style="border: 1px solid black">
             <td>Players:</td><td>{{ playerCount }}</td>
         </tr>
@@ -24,7 +24,7 @@
 </div>
     <br>
 <div>
-    <label for="cars">Browse by Players:</label>
+    {% comment %} <label for="cars">Browse by Players:</label>
 
         <select name="Select Last Name Initial" id="lastNameInitialFiler">
                 <option value="Select First Letter of Last Name">Select First Letter of Last Name</option>
@@ -43,7 +43,7 @@
             <option value="1991">1991</option>
             <option value="1992">1992</option>
             <option value="1993">1993</option>
-        </select>
+        </select> {% endcomment %}
     
 </div>
 {% endblock %}

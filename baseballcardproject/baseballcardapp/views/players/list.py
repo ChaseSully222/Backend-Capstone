@@ -29,15 +29,7 @@ def player_list(request):
             """, (letter,))
 
             all_players = db_cursor.fetchall()
-            print(all_players)
-            # If a letter is provided as a query parameter, then filter list of players last name by letter
 
-            # letter = request.GET.get('letter', None)
-            # if letter is not None:
-            #     all_players(letter=letter)
-                
-            # elif letter is None:
-            #     all_players
 
         template = 'players/list.html'
         context = {

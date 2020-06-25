@@ -8,21 +8,36 @@ def set_list(request):
         with sqlite3.connect(Connection.db_path) as conn:
             conn.row_factory = model_factory(Set)
             db_cursor = conn.cursor()
+            year = '%'
+            if request.GET.get('year', None) is not None:
+                year = f'{request.GET.get("year", None)}%'
+            else: 
+                year = '%'
 
             db_cursor.execute("""
-            select
+            SELECT
                 s.id,
                 s.name,
                 s.year,
                 s.setnotes
-            from baseballcardapp_set s
-            """)
+            FROM baseballcardapp_set s
+            WHERE year LIKE ?
+            """, (year,))
 
             all_sets = db_cursor.fetchall()
 
+            db_cursor.execute("""
+            SELECT DISTINCT
+                s.year
+            FROM baseballcardapp_set s
+            """)
+
+            all_years = db_cursor.fetchall()
+
         template = 'sets/list.html'
         context = {
-            'all_sets': all_sets
+            'all_sets': all_sets,
+            'all_years': all_years
         }
 
         return render(request, template, context)
@@ -44,3 +59,24 @@ def set_list(request):
                 form_data['setnotes']))
 
         return redirect(reverse('baseballcardapp:sets'))
+
+def year_list(request):
+    if request.method == 'GET':
+        with sqlite3.connect(Connection.db_path) as conn:
+            conn.row_factory = model_factory(Set)
+            db_cursor = conn.cursor()
+            
+            db_cursor.execute("""
+            SELECT
+                s.year
+            FROM baseballcardapp_set s
+            """)
+
+            all_years = db_cursor.fetchall()
+
+        template = 'sets/list.html'
+        context = {
+            'all_years': all_years
+        }
+
+        return render(request, template, context)
