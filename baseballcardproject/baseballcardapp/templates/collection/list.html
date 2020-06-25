@@ -16,7 +16,7 @@
   {% for collection in all_collections|dictsort:"year" %}
       {% if request.user.id == collection.userId_id %}
         <li>
-          <a href="{% url 'baseballcardapp:card' collection.cardId_id %}">{{collection.year}} {{collection.name}} #{{collection.cardNumber}} {{collection.firstName}}  {{collection.lastName}} ({{collection.notes}})</a>
+          <a href="{% url 'baseballcardapp:card' collection.cardId_id %}">{{collection.year}} {{collection.name}} #{{collection.cardNumber}} {{collection.firstName}}  {{collection.lastName}}</a> | Notes: {{collection.notes}}
   <form action="{% url 'baseballcardapp:collection_details' collection.id %}" method="POST">
         {% csrf_token %}
         <input type="hidden" name="actual_method" value="DELETE">
