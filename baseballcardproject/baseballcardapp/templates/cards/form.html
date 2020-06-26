@@ -2,6 +2,10 @@
 
 {% load static %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/form.css' %}" />
+{% endblock %}
+
 {% block content %}
   <head>
     <meta charset="utf-8">
@@ -10,23 +14,23 @@
   <body>
     <h1>Add Card to Database</h1>
 
-
+<div>
     <form action="{% url 'baseballcardapp:card' %}" method="post">
       {% csrf_token %}
-      <fieldset>
+      
             <label for="player">Player: </label>
             <select id="player" type="text" name="player">
                 {% for player in all_players|dictsort:"lastName" %}
                     <option value="" selected disbled hidden>Select a Player</option>
                     <option value="{{ player.id }}">{{player.firstName}} {{player.lastName}}</option>
                 {% endfor %}
-            </select> <a href="{% url 'baseballcardapp:player_form' %}">Don't see your player?</a>
-      </fieldset>
-      <fieldset>
+            </select> <a href="{% url 'baseballcardapp:player_form' %}">Don't see your player?</a><br><br>
+      
+      
           <label for="year">Year: </label>
           <input id="year" type="number" name="year">
-      </fieldset>
-      <fieldset>
+      
+      
             <label for="set">Set: </label>
             <select id="set" type="text" name="set">
                 {% for set in all_sets|dictsort:"name"|dictsort:"year" %}
@@ -34,26 +38,27 @@
                     <option value="{{ set.id }}">{{set.year}} {{set.name}}</option>
                 {% endfor %}
             </select> 
-            <a href="{% url 'baseballcardapp:set_form' %}">Can't find the correct set?</a>
-      </fieldset>
-      <fieldset>
+            <a href="{% url 'baseballcardapp:set_form' %}">Can't find the correct set?</a><br><br>
+      
+      
           <label for="cardNumber">Card Number: </label>
           <input id="cardNumber" type="number" name="cardNumber">
-      </fieldset>
-      <fieldset>
+      
+      
           <label for="imagePathFront">Card Front Image: </label>
           <input id="imagePathFront" type="text" name="imagePathFront">
-      </fieldset>
-      <fieldset>
+      
+      
           <label for="imagePathBack">Card Back Image: </label>
           <input id="imagePathBack" type="text" name="imagePathBack">
-      </fieldset>
-      <fieldset>
+      
+      
           <label for="attribute">Attribute: </label>
           <input id="attribute" type="text" name="attribute">
-      </fieldset>
+      
 
       <input type="submit" value="Add It" />
     </form>
+</div>
   </body>
 {% endblock %}

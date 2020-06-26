@@ -2,6 +2,10 @@
 
 {% load static %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/form.css' %}" />
+{% endblock %}
+
 {% block content %}
   <head>
     <meta charset="utf-8">
@@ -9,22 +13,21 @@
   </head>
   <body>
     <h1>Add Set to Database</h1>
-
+<div>
     <form action="{% url 'baseballcardapp:sets' %}" method="post">
       {% csrf_token %}
-      <fieldset>
+
           <label for="year">Year: </label>
           <input id="year" type="number" name="year">
-      </fieldset>
-      <fieldset>
+
           <label for="name">Name: </label>
           <input id="name" type="text" name="name">
-      </fieldset>
-      <fieldset>
+
           <label for="setnotes">Notes: </label>
-          <textarea rows="1" cols="20" id="setnotes" type="text" name="setnotes"></textarea>
-      </fieldset>
+          <input id="setnotes" type="text" name="setnotes">
+
       <input type="submit" value="Add It" />
     </form>
+</div>
   </body>
 {% endblock %}

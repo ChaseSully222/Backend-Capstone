@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block css %}
+<link rel="stylesheet" href="{% static 'styles/set.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -11,12 +12,13 @@
     </head>
   <body>
     <h1><a href="{% url 'baseballcardapp:main' %}">Baseball Cards</a> > Sets({{all_sets|length}})</h1>
-    <a href="{% url 'baseballcardapp:set_form' %}"><b>Add a Set to the Database</b></a>
-    <h4>Browse by Year:</h4>
-    <a href="{% url 'baseballcardapp:sets'  %}">All |</a>
+    <div class="years">
+    <b>Browse by Year:</b>
+    <a href="{% url 'baseballcardapp:sets'  %}"><b>All</b></a> |
     {% for year in all_years|dictsort:"year" %}
-     <a href="{% url 'baseballcardapp:sets'  %}?year={{ year.year }}">{{ year.year }} |</a>
-    {% endfor %}
+     <a href="{% url 'baseballcardapp:sets'  %}?year={{ year.year }}"><b>{{ year.year }}</b></a> |
+    {% endfor %}</div><br>
+    <div class="addSet"><b>Can't find a Set?:</b><a href="{% url 'baseballcardapp:set_form' %}">Add a Set to the Database</a></div>
         <ul>
     {% for set in all_sets|dictsort:"year" %}
         <li>

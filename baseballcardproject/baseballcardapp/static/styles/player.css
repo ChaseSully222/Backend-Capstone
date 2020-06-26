@@ -1,0 +1,21 @@
+h1 {
+    text-align: center;
+  }
+  
+  .main-content{
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+.letters {
+    text-align: center;
+}
+
+.addPlayer {
+    text-align: center;
+}
+
+ul {
+    padding-left: 222px;
+}
+
