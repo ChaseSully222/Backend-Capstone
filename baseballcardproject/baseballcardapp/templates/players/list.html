@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block css %}
+<link rel="stylesheet" href="{% static 'styles/player.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -11,12 +12,15 @@
   </head>
     <body>
     <h1><a href="{% url 'baseballcardapp:main' %}">Baseball Cards</a> > Players({{all_players|length}})</h1>
-    <a href="{% url 'baseballcardapp:player_form' %}"><b>Add a Player to the Database</b></a>
-    <body><h4>Last name starts:</h4>
-    <a href="{% url 'baseballcardapp:players' %}">All |</a>
+    <body>
+    <div class="letters">
+    <b>Last name starts:</b>
+    <a href="{% url 'baseballcardapp:players' %}"><b>All</b></a> |
     {% for letter in alphabet  %}
-    <a href="{% url 'baseballcardapp:players' %}?letter={{letter}}">{{ letter }} |</a>
+    <a href="{% url 'baseballcardapp:players' %}?letter={{letter}}"><b>{{ letter }}</b></a> |
     {% endfor %}
+    </div><br>
+    <div class="addPlayer"><b>Can't find a player?:</b> <a href="{% url 'baseballcardapp:player_form' %}">Add a Player to the Database</a></div><br><br>
     </body>
     <ul>
     {% for player in all_players|dictsort:"lastName" %}

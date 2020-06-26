@@ -2,6 +2,10 @@
 
 {% load static %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/form.css' %}" />
+{% endblock %}
+
 {% block content %}
   <head>
     <meta charset="utf-8">
@@ -10,20 +14,19 @@
   <body>
     <h1>Add Player to Database</h1>
 
-
+<div>
     <form action="{% url 'baseballcardapp:players' %}" method="post">
       {% csrf_token %}
-      <fieldset>
-          <label for="firstName">First Name: </label>
-          <input id="firstName" type="text" name="firstName">
-      </fieldset>
-      <fieldset>
-          <label for="lastName">Last Name: </label>
-          <input id="lastName" type="text" name="lastName">
-      </fieldset>
+
+          <label for="firstName">First Name </label>
+          <input id="firstName" type="text" name="firstName" placeholder="Player First Name">
+      
+          <label for="lastName">Last Name </label>
+          <input id="lastName" type="text" name="lastName" placeholder="Player Last Name">
  
       <input type="hidden" name="next" value="{{ request.path }}">
       <button type="submit">Add Player</button>
     </form>
+</div>
   </body>
 {% endblock %}

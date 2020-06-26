@@ -1,12 +1,18 @@
 {% extends 'shared/base.html' %}
 {% load static %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/form.css' %}" />
+{% endblock %}
+
 
 {% block content %}
 <h2>Login</h2>
+<div>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Login </button>  <a href="{% url 'baseballcardapp:register_form' %}">Don't have an account?</a>
 </form>
+</div>
 {% endblock %}

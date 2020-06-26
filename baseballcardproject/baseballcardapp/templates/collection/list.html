@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block css %}
+<link rel="stylesheet" href="{% static 'styles/collection.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -10,23 +11,31 @@
   <title>My Collection</title>
 </head>
   <h1>Manage Collection</h1>
-    <h2 style="text-align:left;float:left;">Cards</h2> 
-      <hr style="clear:both;"/>
+
 <ul style="list-style-type:none;">
   {% for collection in all_collections|dictsort:"year" %}
       {% if request.user.id == collection.userId_id %}
         <li>
+        <div>
           <a href="{% url 'baseballcardapp:card' collection.cardId_id %}">{{collection.year}} {{collection.name}} #{{collection.cardNumber}} {{collection.firstName}}  {{collection.lastName}}</a> | Notes: {{collection.notes}}
+        </div>
+ <div>         
   <form action="{% url 'baseballcardapp:collection_details' collection.id %}" method="POST">
         {% csrf_token %}
         <input type="hidden" name="actual_method" value="DELETE">
         <button>Delete</button>
   </form>
+  </div>
+
+ <div> 
   <form action="{% url 'baseballcardapp:collection_edit_form' collection.id %}" method="GET">
           {% csrf_token %}
           <button>Edit</button>
   </form>
+  </div>
+
         </li>
+
       {% endif %}
   {% endfor %}
 {% endblock %}

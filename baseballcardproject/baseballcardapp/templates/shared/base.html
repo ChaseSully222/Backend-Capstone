@@ -6,20 +6,8 @@
     <meta charset="utf-8">
     <title>Grand Slam Collections - Manage, Track, and Organize your collection of baseball cards!</title>
 
-    <style>
-        .navList {
-            list-style-type: none;
-            display: flex;
-            border: 1px solid lightgray;
-            padding: 1em;
-        }
 
-        .navList__route {
-            margin: 0 0.5em;
-        }
-    </style>
-
-
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}" />
     {% block css %}
     {% endblock %}
 
@@ -27,7 +15,7 @@
 </head>
 
 <body>
-<h1>Grand Slam Collections</h1> 
+<h1 class="nav_title">Grand Slam Collections</h1> 
 
     <nav id="site-nav">
         <ol class="navList">
