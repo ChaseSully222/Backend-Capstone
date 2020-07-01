@@ -1,3 +1,21 @@
+## About the Project
+
+* Grand Slam Collections is a baseball card
+collectors app. The app was built for
+collectors to better organize and catalog
+their collection of baseball cards. Users can
+register an account on the site and find
+existing cards by browsing by players or by
+card sets. A user has the ability to add a
+player, card, or set to the database, if they do
+not currently exist. In the 'My Collections' tab,
+a user can view cards added to their
+collection, delete cards from the collection,
+or edit any notes they may have. The 'Set'
+and 'Player' tabs both have filtering
+functionality to make finding a specific card
+much easier.
+
 ## Project Definition
 
 * FULL STACK application written in PYTHON using DJANGO framework
